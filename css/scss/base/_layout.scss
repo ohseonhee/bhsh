@@ -1,0 +1,464 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&family=Noto+Sans+KR:wght@400;600;800&display=swap');
+%flex-box{
+    display:flex;
+    align-items: center;
+}
+%flex-box-between{
+    @extend %flex-box;
+    justify-content: space-between;
+}
+%flex-box-center{
+    @extend %flex-box;
+    justify-content: center;
+}
+html{
+    font-size:10px;
+}
+body {
+    background-color: $bg-color-white;
+    font-family: $font-family-normal;
+    font-size: $font-size-normal;
+    color: $font-color-black;
+    word-break: break-all;
+}
+.body-area {
+    background:#EAEEF6;
+    text-align: center;
+    img{
+        width:100%;
+    }
+}
+//main-area
+.section-area{
+    display:flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+.section{
+    min-height:100vh;
+    display:flex;
+    flex-direction: column;
+    flex-shrink: 0;
+    justify-content: center;
+    color:#000;
+    &.section01{
+        background:#fff;
+        font-size:$font-size-small;
+        .title{
+            font-size:$font-size-xlarge;
+            margin:16px 0;
+        }
+        .photo{
+            margin-top:16px;
+        }
+    }
+    &.section02{
+        .ment{
+            line-height: 40px;
+        }  
+        h3{
+            margin-bottom: 20px;
+            font-size:30px;
+            font-family: 'Dancing Script', cursive;
+        }
+    }
+    &.section03{
+        background:#fff;
+        .photo-list{
+            @extend %flex-box;
+            flex-wrap: nowrap;
+            overflow-x: auto;
+            li{
+                width:90%;
+                flex-shrink: 0;
+            }
+        }
+    }
+    &.section04{
+        background:#fff;
+        padding-bottom: 40px;
+        text-align: left;
+        h3{
+            text-align: center;
+            margin:20px 0;
+        }
+        .location{
+            padding-left:20px;
+            margin-top:40px;
+            .adress{
+                font-weight: bold;
+            }
+            .way{
+                margin-top:20px;
+                font-size:13px;
+                .tit{
+                    font-weight: bold;
+                }
+            }
+        }
+    }
+    &.section05{
+        min-height:auto;
+        padding:40px 0;
+        .sub-title{
+            font-size:12px;
+            margin-bottom: 40px;
+        }
+        button{
+            border:solid 1px #aaa;
+            display:block;
+            width:200px;
+            margin:0 auto;
+            padding:12px 0;
+            & + button{
+                margin-top:10px;
+            }
+        }
+        .call-box{
+            width:200px;
+            margin: 20px auto;
+            &>div{
+                display:flex;
+                justify-content: space-between;
+                font-size:13px;
+                &:first-of-type{
+                    margin-bottom: 10px;
+                }
+                i{
+                    display:inline-block;
+                    width:20px;
+                }
+            }
+        }
+    }
+}
+
+/*popup*/
+.popup{
+    display:none;
+    position: fixed;
+    top:50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+    z-index:10;
+    border-radius: 1.6rem 1.6rem 0 0 ;
+    background:#fff;
+    width:90%;
+    .popup-btn{
+        
+        margin-top:1.6rme;
+        button{
+            display:block;
+            width:100%;
+            background:rgba(246,174,155,1);
+            padding:1.2rem 0;
+            color:#fff;
+            text-align: center;
+        }
+        &.on{
+            background:$bg-color-main;
+        }
+    }
+    .account-box{
+        font-size:12px;
+        .tit{
+            font-weight: bold;
+            font-size:12px;
+            display:flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom:solid 1px #e9e9e9;
+            padding-bottom: 10px;
+            margin-bottom: 10px;
+            button{
+                border-radius: 2px;
+                padding:3px 5px;
+                background:rgba(246,174,155,1);
+                color:#fff;
+                font-size:10px;
+            }
+        }
+        & + .account-box{
+            margin-top:20px;
+        }
+    }
+}
+.popup-bg, .gnb-bg{
+    display:none;
+    background:rgba(0,0,0,0.8);
+    position:fixed;
+    left:0;
+    top:0;
+    width:100%;
+    height:100%;
+    z-index:9;
+}
+.popup-inner{
+    padding:1.7rem 2rem 2rem 2rem;
+    
+}
+
+.popup-header{
+    @extend %flex-box-between;
+    .pop-tit{
+        font-size:1.5rem;
+        font-weight: $font-weight-bold;
+        color:$main-color;
+    }
+    .popup-close-btn{
+        width:3.6rem;
+        img{
+            width:100%;
+        }
+    }
+}
+
+.popup-body{
+    margin-top:4.7rem;
+    max-height:30rem;
+    box-sizing: border-box;
+    overflow-y: auto;
+    /* width */
+    &::-webkit-scrollbar {
+        width: .2rem;
+    }
+    
+    /* Track */
+    &::-webkit-scrollbar-track {
+        background: none; 
+    }
+    
+    /* Handle */
+    &::-webkit-scrollbar-thumb {
+        background: #888; 
+    }
+    
+    /* Handle on hover */
+    &::-webkit-scrollbar-thumb:hover {
+        background: #555; 
+    }
+}
+
+.notice-area{
+    li{
+        @extend %flex-box;
+        border-radius: 1.2rem;
+        p{
+            padding:1rem .5rem;
+            text-align: center;
+            font-size:$font-size-xsmall;
+            box-sizing: border-box;
+            &.notice-view{
+                width:60%;
+            }
+            &.date, &.status{
+                width:23%;
+            }
+            &.writer{
+                width:17%;
+            }
+        }
+        a{
+            font-size:$font-size-xsmall;
+            display:block;
+            color:$main-color;
+            font-weight: $font-weight-bold;
+            @include ellipsis(1);
+            padding-left:2.6rem;
+            text-align: left;
+            background:url(/mo/images/icon_notice.png) no-repeat 1rem center;
+            background-size:1.2rem;
+        }
+        &:nth-child(even){
+            background:$bg-color-gray;
+        }
+    }
+}
+
+.form-box{
+    margin-bottom: 1.6rem;
+    .tit{
+        font-size:$font-size-small;
+        color:#808191;
+        font-weight: $font-weight-bold;
+        margin-bottom: 1.2rem;
+        @extend %flex-box;
+        span{
+            color:$font-color-red;
+            font-size:.8rem;
+            font-weight: $font-weight-regular;
+            display:inline-block;
+            margin-left:.6rem;
+            width: 80%;
+        }
+    }
+    .input-box{
+        border-radius: .8rem;
+        background:#F7F7F7;
+        height:4.4rem;
+        line-height: 4.4rem;
+        padding:0 1rem;
+        display:flex;
+        width:100%;
+        font-size:$font-size-xsmall;
+        &.focus{
+            background:#fff;
+            border:solid 0.15rem $main-color;
+        }
+    }
+    .input-box input{
+        background:none;
+        border:none;
+        width:100%;
+        font-weight: $font-weight-bold;
+        flex: 1;
+        font-size:.9rem;
+        &:focus-visible{
+            outline: none;
+        }
+    }
+    .money-btn-area{
+        margin-top:1rem;
+        button{
+            border:solid 0.1rem #E4E4E4;
+            padding:.6rem ;
+            border-radius: 2rem;
+            color:#797979;
+            font-size:.8rem;
+        }
+        button.on{
+            background:#E4E4E4;
+            color:$main-color;
+        }
+    }
+} 
+
+.deposit-notice-area{
+    border-radius: 0 0 1.6rem 1.6rem;
+    overflow: hidden;
+    a{
+        display:block;
+        background:$bg-color-main;
+        color:#fff;
+        text-align: center;
+        padding:18px 0;
+        &:before, &:after{
+            content: '';
+            display:inline-block;
+            width:1rem;
+            height:1rem;
+            border-left: solid .2rem #fff;
+            border-bottom: solid .2rem #fff;
+            transform: rotate(-45deg);
+            margin-bottom:.2rem;
+        }
+        &:before{
+            margin-right:1.2rem;
+        }
+        &:after{
+            margin-left:1.2rem;
+        }
+    }
+    .notice{
+        display:none;
+        padding:2.7rem 5.2rem;
+        background:url(/pc/images/line.png) repeat-x left top;
+        .tit{
+            color:$main-color;
+            font-size:$font-size-title-small;
+        }
+        ul li{
+            font-size:$font-size-small;
+            color:#000;
+            margin-top:1rme;
+            p{
+                padding-left:1.5rem;
+            }
+        }
+    }
+}
+
+#qna-popup{
+    .notice-area{
+        li a{
+            position: relative;
+            background:none;
+            &:before{
+                content: '?';
+                color:$main-color;
+                font-weight: $font-weight-bold;
+                position: absolute;
+                left:1.5rem;
+                top:50%;
+                transform: translateY(-50%);
+                display:block;
+            }
+        }
+    }
+    .apply-btn{
+        margin-top:3.5rem;
+    }
+}
+
+#mypage-popup{
+    .flex-box{
+        display:flex;
+        & > div{
+            flex:1;
+        }
+        div + div{
+            margin-left:0.5rem;
+        }
+        .input-box{
+            flex:1;
+            & + .input-box{
+                margin-left:0.5rem;
+            }
+            select{
+                height:100%;
+                width:100%;
+                border:none;
+                background:none;
+                font-size:$font-size-xsmall;
+                font-weight: $font-weight-bold;
+                color:#797979;
+                outline:none;
+            } 
+            select option{
+                background:#fff;
+            }
+            select:focus-visivle{
+                outline: none;
+            }
+        }
+    }
+    .btn-area + .mypage-area{
+        margin-top:3rem;
+        padding-top:3rem;
+        background:url(/mo/images/line.png) repeat-x left top;
+    }
+}
+
+#setting-popup{
+    .tit{
+        color:$main-color;
+        font-size:$font-size-normal;
+    }
+    input[type="checkbox"] + label{
+        color:$main-color;
+        padding-left:2.4rem;
+    }
+    input[type="checkbox"] + label::after{
+        border:solid .1rem #e9e9e9;
+    }
+    .popup-body{
+        & > div{
+            margin-top: 1.4rem;
+            &.btn-area{
+                margin-top:5rem;
+            }
+        }
+    }
+}
+

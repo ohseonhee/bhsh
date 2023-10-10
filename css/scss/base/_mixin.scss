@@ -1,0 +1,39 @@
+@charset "UTF-8";
+
+// 접근성용 숨김 텍스트
+@mixin a11y-hidden {
+    overflow: hidden !important;
+    position: absolute !important;
+    clip: rect(0, 0, 0, 0) !important;
+    clip-path: circle(0) !important;
+    width: 1px !important;
+    height: 1px !important;
+    margin: -1px !important;
+    border: 0 !important;
+    padding: 0 !important;
+    white-space: nowrap !important;
+}
+
+@mixin common-layout {
+    width:100%;
+    padding:0 2rem;
+}
+
+@function imgUrl($url){
+    @return url($img-root + $url);
+}
+
+@mixin ellipsis($line: 1) {
+    @if ($line == 1) {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    } @else {
+      display: -webkit-box;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      word-wrap: break-word;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: $line;
+    }
+  }
