@@ -72,8 +72,7 @@ caption {
   overflow: hidden !important;
   position: absolute !important;
   clip: rect(0, 0, 0, 0) !important;
-  -webkit-clip-path: circle(0) !important;
-          clip-path: circle(0) !important;
+  clip-path: circle(0) !important;
   width: 1px !important;
   height: 1px !important;
   margin: -1px !important;
@@ -324,6 +323,23 @@ body {
 .section.section05 .call-box > div i {
   display: inline-block;
   width: 20px;
+}
+.section.section06 {
+  min-height: auto;
+  padding: 40px 0 80px 0;
+}
+.section.section06 .text {
+  margin-top: 40px;
+  font-size: 20px;
+}
+.section.section06 .text span {
+  font-weight: bold;
+  color: #FFC90E;
+  font-size: 24px;
+}
+.section.section06 .img {
+  margin-top: 40px;
+  padding: 0 30px;
 }
 
 /*popup*/
@@ -712,4 +728,4 @@ body {
 }
 .gnb .login i img {
   width: 100%;
-}/*# sourceMappingURL=style.css.map */
+}

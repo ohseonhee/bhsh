@@ -132,6 +132,23 @@ body {
             }
         }
     }
+    &.section06{
+        min-height:auto;
+        padding:40px 0 80px 0;
+        .text{
+            margin-top:40px;
+            font-size:20px;
+            span{
+                font-weight: bold;
+                color:#FFC90E;
+                font-size:24px;
+            }
+        }
+        .img{
+            margin-top:40px;
+            padding:0 30px;
+        }
+    }
 }
 
 /*popup*/

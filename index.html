@@ -69,6 +69,12 @@
 						</li>
 					</ul>
 				</div>
+				<div class="section section06">
+					<div class="text">병호&선희 결혼식까지 <span></span> 남았습니다!</div>
+					<div class="img">
+						<img src="./images/cal.jpg" alt="12월 2일">
+					</div>
+				</div>
 				<div class="section section04">
 					<h3 class="wow fadeInUp">오시는 길</h3>
 					<div class="map wow fadeInUp">
@@ -232,6 +238,12 @@
 				alert("복사되었습니다.")
 		})
 	})
+
+	const dday = new Date("Dec 02, 2023, 00:00:00").getTime();
+	const now = new Date();
+	const distance = dday - now;
+	const d = Math.floor(distance / (1000 * 60 * 60 * 24));
+	$('.section06 .text span').html(d + '일');
 
 </script>
 </html>
