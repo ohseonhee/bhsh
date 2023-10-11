@@ -198,15 +198,17 @@
 	
 	
     $(document).ready(function(){
-        $('.section').snowfall({
+        $('.section').each(function(index){
+			$(`.section0${index+1}`).snowfall({
             flakeIndex:1,
 			minSize:15,
 			maxSize:20,
 			maxSpeed:1,
 			minSpeed:1,
-			flakeCount : 2,
+			flakeCount : 8,
 			image :"/images/flower.png",
          })
+		})
     });
 	//popup
 	$('.pop-btn-js').click(function(){

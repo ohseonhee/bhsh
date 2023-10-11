@@ -42,6 +42,7 @@ body {
     flex-shrink: 0;
     justify-content: center;
     color:#000;
+    position:relative;
     &.section01{
         background:#fff;
         font-size:$font-size-small;
