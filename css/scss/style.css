@@ -350,9 +350,13 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 10;
-  border-radius: 1.6rem 1.6rem 0 0;
+  border-radius: 1.6rem;
+  overflow: hidden;
   background: #fff;
   width: 90%;
+}
+.popup .popup-inner {
+  padding: 20px;
 }
 .popup .popup-btn {
   margin-top: 1.6rme;
@@ -360,7 +364,7 @@ body {
 .popup .popup-btn button {
   display: block;
   width: 100%;
-  background: rgb(246, 174, 155);
+  background: #e73c89;
   padding: 1.2rem 0;
   color: #fff;
   text-align: center;
@@ -384,7 +388,7 @@ body {
 .popup .account-box .tit button {
   border-radius: 2px;
   padding: 3px 5px;
-  background: rgb(246, 174, 155);
+  background: #b2b0b0;
   color: #fff;
   font-size: 10px;
 }
